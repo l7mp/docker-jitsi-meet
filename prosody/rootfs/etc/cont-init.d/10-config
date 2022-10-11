@@ -35,6 +35,10 @@ if [[ -z $JICOFO_AUTH_PASSWORD ]]; then
     exit 1
 fi
 
+if [[ "$TURN_ENABLE" == "1" || "$TURN_ENABLE" == "true" ]]; then
+    export GLOBAL_MODULES="${GLOBAL_MODULES},turn_external"
+fi
+
 # Defaults
 [ -z "${JIBRI_RECORDER_USER}" ] && export JIBRI_RECORDER_USER=recorder
 [ -z "${JIBRI_XMPP_USER}" ] && export JIBRI_XMPP_USER=jibri

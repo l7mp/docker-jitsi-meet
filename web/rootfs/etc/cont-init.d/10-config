@@ -85,3 +85,7 @@ cp /defaults/interface_config.js /config/interface_config.js
 if [[ -f /config/custom-interface_config.js ]]; then
     cat /config/custom-interface_config.js >> /config/interface_config.js
 fi
+
+if [[ $TURN_ENABLE -eq 1 || "$TURN_ENABLE" == "true" ]]; then
+    sed -i -e "s#// useStunTurn:.*,#useStunTurn: true,#" /config/config.js
+fi

@@ -47,6 +47,7 @@ RUN wget -qO /etc/apt/trusted.gpg.d/prosody.gpg https://prosody.im/files/prosody
     apt-dpkg-wrap apt-get -d install -y jitsi-meet-prosody && \
     dpkg -x /var/cache/apt/archives/jitsi-meet-prosody*.deb /tmp/pkg && \
     mv /tmp/pkg/usr/share/jitsi-meet/prosody-plugins /prosody-plugins && \
+    wget https://raw.githubusercontent.com/netaskd/mod_turncredentials/master/mod_turncredentials.lua -P /prosody-plugins && \
     rm -rf /tmp/pkg /var/cache/apt && \
     apt-cleanup && \
     rm -rf /etc/prosody && \
